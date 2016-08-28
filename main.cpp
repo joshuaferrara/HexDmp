@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <sstream>
 #include <iomanip>
+#include <cmath>
 
 // Cross-platform compilation requirements
 #ifdef __unix
 #include <stdlib.h>
-#include <cmath>
 #define _CRT_SECURE_NO_DEPRECATE
 #endif
 
@@ -44,11 +44,7 @@ int main(int argc, char ** argv) {
 		for (int i = 1; i < argc; i++) { // For each file provided as an argument
 			currentFile = argv[i];
 
-#ifdef __unix
 			fileptr = fopen(currentFile.c_str(), "rb"); // Create a file handle
-#else
-			fopen_s(&fileptr, currentFile.c_str(), "rb"); // Create a file handle safely
-#endif
 
 			if (fileptr == NULL) { // Check if we can open the file for reading
 				cout << "File could not be opened: " << currentFile << endl;
