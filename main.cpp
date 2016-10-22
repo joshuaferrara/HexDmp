@@ -19,8 +19,7 @@ string hexVal(int dec) {
 	string str = tmp.str();
 	if (str.length() > 2) {
 		str = str.substr(str.length() - 2);
-	}
-	else if (str.length() == 1) {
+	} else if (str.length() == 1) {
 		str = "0" + str;
 	}
 	return str;
@@ -34,8 +33,7 @@ void hr() {
 int main(int argc, char ** argv) {
 	if (argc <= 1) {
 		cout << "No file provided!" << endl;
-	}
-	else {
+	} else {
 		FILE *fileptr;
 		char *buffer;
 		long filelen;
